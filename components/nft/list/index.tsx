@@ -2,18 +2,23 @@
 
 import {FunctionComponent} from "react";
 import NTFItem from "@/components/nft/item";
+import {NFTMeta} from "@/types/nft";
 
-const NFTList: FunctionComponent = () => {
+type NFTListProps = {
+    nfts:NFTMeta[]
+}
 
+const NFTList: FunctionComponent<NFTListProps> = ({nfts}) => {
     return(
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-            <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                <NTFItem />
-            </div>
-
+            {nfts.map(nft =>
+            <div key = {nft.image} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                <NTFItem
+                item={nft}/>
+                </div>
+            )}
         </div>
     )
-
 }
 
 export default NFTList;
