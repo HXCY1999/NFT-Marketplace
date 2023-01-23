@@ -2,8 +2,8 @@
 
 import type { NextPage } from 'next'
 import { BaseLayout } from '../components'
-import NFTItem from '../components/nft/item'
-import NFTList from "@/components/nft/list"
+import NFTItem from '../components/ui/nft/item'
+import NFTList from "@/components/ui/nft/list"
 import nfts from "../content/meta.json"
 import {NFTMeta} from "@/types/nft";
 
@@ -20,7 +20,6 @@ const Home: NextPage = () => {
                         <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
                             Mint a NFT to get unlimited ownership forever!
                         </p>
-
                     </div>
                     <NFTList
                         nfts={nfts as NFTMeta[]}/>

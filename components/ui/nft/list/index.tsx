@@ -1,7 +1,7 @@
 
 
 import {FunctionComponent} from "react";
-import NTFItem from "@/components/nft/item";
+import NTFItem from "@/components/ui/nft/item";
 import {NFTMeta} from "@/types/nft";
 
 type NFTListProps = {

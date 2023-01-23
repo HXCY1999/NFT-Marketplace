@@ -1,8 +1,10 @@
 
-export {default as Navbar } from "./navbar";
+export {default as Navbar } from "./ui/navbar";
 
-export {default as BaseLayout} from "./layout/BaseLayout"
+export {default as BaseLayout} from "./ui/layout/BaseLayout"
 
-export {default as NFTList} from "./nft/list"
+export {default as NFTList} from "./ui/nft/list"
 
-export {default as NFTItem} from "./nft/item"
+export {default as NFTItem} from "./ui/nft/item"
+
+export {default as ActiveLink } from "./ui/link"
