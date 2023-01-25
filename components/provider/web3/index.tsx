@@ -1,22 +1,36 @@
-import {createContext, FunctionComponent, useContext, useState} from "react";
-import {useSearchParams} from "next/navigation";
+import { createContext, FunctionComponent, useContext, useState ,useEffect} from "react"
+import {MetaMaskInpageProvider} from "@metamask/providers";
+import {Contract, providers} from"ethers";
+import {createDefaultState, Web3State} from "@/components/provider/web3/utils";
 
-const web3Context = createContext<any>(null);
 
-const web3Provider: FunctionComponent = ({children}) =>{
+const Web3Context = createContext<Web3State>(createDefaultState());
 
-    const [web3Api, setWeb3Api] = useState({test:"Hello Provider!"})
-    
-    return(
-        <web3Context.Provider value={web3Api}>
+const Web3Provider: FunctionComponent = ({children}) => {
+    const [web3Api, setWeb3Api] = useState<Web3State>(createDefaultState());
+
+    useEffect(() => {
+        function initWeb3() {
+            setWeb3Api({
+                ethereum: window.ethereum,
+                provider: null,
+                contract: null,
+                isLoading: false,
+            })
+        }
+
+        initWeb3();
+    },[])
+
+    return (
+        <Web3Context.Provider value={web3Api}>
             {children}
-        </web3Context.Provider>
+        </Web3Context.Provider>
     )
-
 }
 
-export function useWeb3(){
-    return useContext(web3Context)
+export function useWeb3() {
+    return useContext(Web3Context);
 }
 
-export default web3Provider;
+export default Web3Provider;
