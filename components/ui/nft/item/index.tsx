@@ -62,6 +62,7 @@ const NTFItem: FunctionComponent<NFTItemProps> = ({item}) => {
                         </button>
                     </div>
                 </div>
+
         </>
 
     )
