@@ -1,0 +1,86 @@
+{
+  "contractName": "NftMarket",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/NftMarket.sol\":\"NftMarket\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/NftMarket.sol\":{\"keccak256\":\"0xb55f80a03b450ebb09ca95251424f1474a1e8aad77ce329788032261106c2acc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e9bc139a74dec11f773d52c21832d14c5023510d671fb9b2e62254db421b2006\",\"dweb:/ipfs/QmPbG3PLpyg9HrvwRgbk1657WJzw5Pb7r7e3To3RdyRbR9\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207a7cfbbf1945a90292baf2a3ce84ff6271031496eea408b8f37b04ec351c61f164736f6c63430008110033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207a7cfbbf1945a90292baf2a3ce84ff6271031496eea408b8f37b04ec351c61f164736f6c63430008110033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "71:25:1:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "71:25:1:-:0;;;;;",
+  "source": "\r\n// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract NftMarket {\r\n\r\n}",
+  "sourcePath": "D:\\Blockchain\\nft-marketplace\\contracts\\NftMarket.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/NftMarket.sol",
+    "exportedSymbols": {
+      "NftMarket": [
+        35
+      ]
+    },
+    "id": 36,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "35:32:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "NftMarket",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 35,
+        "linearizedBaseContracts": [
+          35
+        ],
+        "name": "NftMarket",
+        "nameLocation": "80:9:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 36,
+        "src": "71:25:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "35:61:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xC594d931DC26Abc7c398989436F4C43Bf527eFb2",
+      "transactionHash": "0xf21df69efc257939898847de9962c55c297122b885d7cdcc0076ca0509978297"
+    }
+  },
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-01-25T22:25:12.827Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
