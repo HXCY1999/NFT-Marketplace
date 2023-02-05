@@ -4,7 +4,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from "next/link";
 import {ActiveLink} from "@/components";
 import {useWeb3} from "@/components/provider/web3";
-import {useAccount} from "@/components/hooks/web3";
+import {useAccount, useNetwork} from "@/components/hooks/web3";
+import Walletbar from "@/components/ui/navbar/Walletbar";
 
 const navigation = [
     { name: 'MarketPlace', href: '/', current: true },
@@ -20,12 +21,13 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
     const { account } = useAccount();
+    const { network } = useNetwork();
+    console.log(network.data);
 
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
                 <>
-
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -42,8 +44,9 @@ export default function Navbar() {
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
 
+                                    {/*icon*/}
                                     <img className="hidden lg:block h-10 w-auto"
-                                         src="/images/page_logo.png" alt="Workflow"
+                                         src="https://upload.wikimedia.org/wikipedia/commons/7/70/Ethereum_logo.svg" alt="Workflow"
                                     />
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
@@ -68,56 +71,24 @@ export default function Navbar() {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button
-                                    type="button"
-                                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <span className="sr-only">View notifications</span>
-                                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button>
+                                <div className="text-gray-300 self-center mr-2">
+                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-purple-100 text-purple-800">
+                                    <svg className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
+                                      <circle cx={4} cy={4} r={3} />
+                                    </svg>
+                                      {
+                                          network.isLoading ? "Loading..." :
+                                              account.isInstalled ? network.data : "Install Web3 Wallet"
+                                      }
+                                  </span>
+                                </div>
 
-                                {/* Profile dropdown */}
-                                {
-                                    //connect to the wallet then display menu
-                                    false ?
-                                    <Menu as="div" className="relative ml-3 z-10">
-                                        <div>
-                                            <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                                <span className="sr-only">Open user menu</span>
-                                                <img
-                                                    className="h-8 w-8 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                    alt=""
-                                                />
-                                            </Menu.Button>
-                                        </div>
-                                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <Link legacyBehavior
-                                                          href="/profile">
-                                                        <a
-                                                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                        >
-                                                            Your Profile
-                                                        </a>
-                                                    </Link>
-
-                                                )}
-                                            </Menu.Item>
-                                        </Menu.Items>
-                                    </Menu> :
-                                        //if not connected to wallet then connect
-                                        <button
-                                            onClick={() => {
-                                                account.connect();
-                                            }}
-                                            type="button"
-                                            className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                        >
-                                            Connect Wallet
-                                        </button>
-                                }
+                                <Walletbar
+                                    isInstalled={account.isInstalled}
+                                    isLoading={account.isLoading}
+                                    connect={account.connect}
+                                    account={account.data}
+                                />
                             </div>
                         </div>
                     </div>
