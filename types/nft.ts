@@ -1,14 +1,24 @@
+export type Trait = "attack" | "health" | "speed";
 
-export type Trait = "attack" | "health" | "speed"
-
-export type NFTAttribute = {
+export type NftAttribute = {
     trait_type: Trait;
     value: string;
 }
 
-export type NFTMeta = {
+export type NftMeta = {
     name: string;
     description: string;
     image: string;
-    attributes: NFTAttribute[];
+    attributes: NftAttribute[];
 }
+
+export type NftCore = {
+    tokenId: number;
+    price: number;
+    creator: string;
+    isListed: boolean
+}
+
+export type Nft = {
+    meta: NftMeta
+} & NftCore

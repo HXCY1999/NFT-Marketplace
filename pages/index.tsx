@@ -1,14 +1,13 @@
 
+import type { NextPage } from 'next';
 
-import type { NextPage } from 'next'
-import { BaseLayout } from '../components'
-import NFTItem from '../components/ui/nft/item'
-import NFTList from "@/components/ui/nft/list"
-import nfts from "../content/meta.json"
-import {NFTMeta} from "@/types/nft";
-import {useWeb3} from "@/components/provider/web3";
+import { Nft } from 'types/nft';
+import {useListedNfts} from "@/components/hooks/web3";
+import {BaseLayout} from "@/components";
+import NftList from "@/components/ui/nft/list";
 
 const Home: NextPage = () => {
+    const { nfts } = useListedNfts();
 
     return (
         <BaseLayout>
@@ -23,8 +22,8 @@ const Home: NextPage = () => {
                             Mint a NFT to get unlimited ownership forever!
                         </p>
                     </div>
-                    <NFTList
-                        nfts={nfts as NFTMeta[]}
+                    <NftList
+                        nfts={nfts.data as Nft[]}
                     />
                 </div>
             </div>

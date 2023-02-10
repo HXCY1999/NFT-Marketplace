@@ -1,4 +1,6 @@
-import {useHooks} from "@/components/provider/web3";
+
+
+import { useHooks } from "@providers/web3"
 
 
 export const useAccount = () => {
@@ -9,11 +11,21 @@ export const useAccount = () => {
         account: swrRes
     }
 }
+
 export const useNetwork = () => {
     const hooks = useHooks();
     const swrRes = hooks.useNetwork();
 
     return {
         network: swrRes
+    }
+}
+
+export const useListedNfts = () => {
+    const hooks = useHooks();
+    const swrRes = hooks.useListedNfts();
+
+    return {
+        nfts: swrRes
     }
 }
