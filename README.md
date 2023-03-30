@@ -37,3 +37,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 "# NFT-Marketplace" 
+
+![image](https://user-images.githubusercontent.com/112450639/228862445-cbd2b1e3-a6b4-4cfa-948f-7f2304ce543f.png)
+![image](https://user-images.githubusercontent.com/112450639/228862745-8cef0956-9e02-4714-b81e-bafbb6ad35d5.png)
+![image](https://user-images.githubusercontent.com/112450639/228862830-aeb61878-fa66-43b3-af9a-0bb673097873.png)
+
